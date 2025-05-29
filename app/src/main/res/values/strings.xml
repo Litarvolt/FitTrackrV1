@@ -2,11 +2,18 @@
 <resources>
     <string name="app_name">FitTrackr</string>
     <string name="exit">Exit</string>
+    <string name="trash">Clear Data</string>
     <string name="welcome">Welcome to FitTrackr</string>
     <string name="start_tracking">What would you like to do today?</string>
     <string name="exit_message">Do you really want to leave FitTrackr?</string>
     <string name="activity_time">How many minutes did you train?</string>
     <string name="button_add">Add Activity</string>
+    <string name="snackbar_enter_minutes">You must enter the minutes</string>
+    <string name="stats_default">Calories: 0\nMost: -\nMinutes: 0</string>
+    <string name="stats_calories">Calories: %1$d</string>
+    <string name="stats_most">\nMost: %1$s</string>
+    <string name="stats_minutes">\nMinutes: %1$d</string>
+    <string name="achievement_unlocked">Achievement unlocked! More than 500 calories burned today!</string>
 
     <array name="activity_options">
         <item>Walk</item>

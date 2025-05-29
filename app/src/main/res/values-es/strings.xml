@@ -2,18 +2,24 @@
 <resources>
     <string name="app_name">FitTrackr</string>
     <string name="exit">Salir</string>
+    <string name="trash">Borrar datos</string>
     <string name="welcome">Bienvenido a FitTrackr</string>
-    <string name="start_tracking">¿Qué deseas hacer hoy?</string>
+    <string name="start_tracking">¿Qué te gustaría hacer hoy?</string>
     <string name="exit_message">¿Realmente quieres salir de FitTrackr?</string>
-    <string name="activity_time">¿Cuantos minutos entrenaste?</string>
+    <string name="activity_time">¿Cuántos minutos entrenaste?</string>
     <string name="button_add">Agregar actividad</string>
-    <string name="quema"
+    <string name="snackbar_enter_minutes">Debes ingresar los minutos</string>
+    <string name="stats_default">Calorías: 0\nMás: -\nMinutos: 0</string>
+    <string name="stats_calories">Calorías: %1$d</string>
+    <string name="stats_most">\nMás: %1$s</string>
+    <string name="stats_minutes">\nMinutos: %1$d</string>
+    <string name="achievement_unlocked">¡Logro desbloqueado! ¡Has quemado más de 500 calorías hoy!</string>
 
-    <string-array name="activity_options">
+    <array name="activity_options">
         <item>Caminar</item>
         <item>Correr</item>
         <item>Nadar</item>
-        <item>Bicicleta</item>
+        <item>Ciclismo</item>
         <item>Yoga</item>
-    </string-array>
+    </array>
 </resources>
