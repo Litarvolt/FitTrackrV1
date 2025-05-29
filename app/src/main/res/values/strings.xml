@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FitTrackr</string>
+    <string name="exit">Exit</string>
+    <string name="welcome">Welcome to FitTrackr</string>
+    <string name="start_tracking">What would you like to do today?</string>
+    <string name="exit_message">Do you really want to leave FitTrackr?</string>
+    <string name="activity_time">How many minutes did you train?</string>
+    <string name="button_add">Add Activity</string>
+
+    <array name="activity_options">
+        <item>Walk</item>
+        <item>Run</item>
+        <item>Swim</item>
+        <item>Cycling</item>
+        <item>Yoga</item>
+    </array>
+</resources>
