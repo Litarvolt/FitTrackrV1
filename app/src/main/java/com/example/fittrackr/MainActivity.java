@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private int totalCalories = 0; // Calorías totales acumuladas
     private int totalMinutes = 0;  // Minutos totales de actividad
     private boolean achievementShown = false; // Indica si ya se mostró el logro
-    private int[] activityCounts; // Cantidad de veces realizada cada actividad
     private String[] activities;  // Nombres de las actividades
     // Calorías quemadas por minuto para cada actividad
     private int[] caloriesPerMinute = {4, 10, 8, 6, 3};
@@ -53,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> listAdapter; // Adaptador para el ListView
     private TextView textViewCalories; // Muestra las estadísticas
     private ImageView imageView2; // Imagen de la actividad más realizada
+    private int [] activityMinutes; // Calculo de minutos por actividad
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         // Inicializa el Spinner con las opciones de actividades
         Spinner spinner = findViewById(R.id.spinner);
         activities = getResources().getStringArray(R.array.activity_options);
-        activityCounts = new int[activities.length]; // Inicializa el contador de actividades
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, activities);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -120,12 +119,12 @@ public class MainActivity extends AppCompatActivity {
                     totalCalories += calories;
                     totalMinutes += minutes;
                     // Incrementa el contador de la actividad seleccionada
-                    activityCounts[position]++;
+                    activityMinutes[position] += minutes;
 
                     // Determina cuál es la actividad más realizada
                     int maxIndex = 0;
-                    for (int i = 1; i < activityCounts.length; i++) {
-                        if (activityCounts[i] > activityCounts[maxIndex]) {
+                    for (int i = 1; i < activityMinutes.length; i++) {
+                        if (activityMinutes[i] > activityMinutes[maxIndex]) {
                             maxIndex = i;
                         }
                     }
@@ -136,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                             + getString(R.string.stats_most, mostActivity)
                             + getString(R.string.stats_minutes, totalMinutes);
                     textViewCalories.setText(stats);
+                    imageView2.setImageResource(images[maxIndex]);
 
                     // Si se superan las 500 calorías y aún no se mostró el logro, muestra un Toast
                     if (totalCalories > 500 && !achievementShown) {
@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        activityMinutes = new int[activities.length];
         // Configura la barra de herramientas (Toolbar)
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -196,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
             totalCalories = 0;
             totalMinutes = 0;
             achievementShown = false;
-            for (int i = 0; i < activityCounts.length; i++) activityCounts[i] = 0;
+            for (int i = 0; i < activityMinutes.length; i++) activityMinutes[i] = 0;
             // Actualiza el TextView y la imagen a los valores por defecto usando recursos de strings
             textViewCalories.setText(getString(R.string.stats_default));
             imageView2.setImageResource(R.drawable.ic_walk); // Imagen por defecto
